@@ -1,0 +1,18 @@
+<div class="col py-3">
+
+  <img (click)="searchCom(img)"   type="button" data-bs-toggle="modal" class="img-fluid"
+   data-bs-target="#exampleModal" [src]="img.url" alt=""> <!--[attr.data-bs-target]="modal"-->
+
+ <app-modal
+  [imageObjectmodal]= "img"
+  ></app-modal>
+  
+ </div>
+
+  <!--<button (click)="searchCom(img)" >55</button>-->
+  <!--(click)="searchCom()"-->
+  <!--<img src="https://picsum.photos/id/237/300/200" alt="">-->
+
+
+
+
