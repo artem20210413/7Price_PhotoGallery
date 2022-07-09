@@ -1,19 +1,19 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { Data } from '@angular/router';
+//import { Data } from '@angular/router';
 
 import { imageObject } from '../app.component';
 
-export class imageInform {
-  id: number | undefined
-  url: string | undefined
-  comments: Comment[] | undefined
+export interface imageInform extends imageObject{
+  //id: number | undefined
+  //url: string | undefined
+  comments?: Comments[] | undefined;
 }
 
-export interface Comment {
+export interface Comments {
   id: number
   text: string
-  data: Data //"date": 1578054737927
+  data:  Date //"date": 1578054737927
 }
 
 @Component({
@@ -27,8 +27,8 @@ export class ContainerComponent implements OnInit {
   //body = "{'name': 'Введите имя','comment': 'Введите текст комментария'}"
 
   @Input() img!: imageObject;
-  @Input() imageinform: imageInform | undefined;
-  @Input() comment: Comment[] | undefined;
+  @Input() imageinform: imageInform|undefined;
+  @Input() comment!: Comments[];
   //@Input()  id: number| undefined;
   responseCom: any;
   constructor(private http: HttpClient) { }
@@ -39,10 +39,12 @@ export class ContainerComponent implements OnInit {
   searchCom(image: imageObject) {
     this.http.get(this.URLIMAGE + image.id)
       .subscribe((data) => {
-        this.responseCom = data;
+        this.imageinform = data;
       });
     //console.log(this.imageinform);
   }
+
+  
   
   /*assign(id: number){
       if (id == this.imageinform?.id){

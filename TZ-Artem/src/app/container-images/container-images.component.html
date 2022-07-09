@@ -4,7 +4,12 @@
    data-bs-target="#exampleModal" [src]="img.url" alt=""> <!--[attr.data-bs-target]="modal"-->
 
  <app-modal
+ 
+  
+  *ngIf="imageinform"
   [imageObjectmodal]= "img"
+  [imageinform2] = "imageinform"
+  
   ></app-modal>
   
  </div>

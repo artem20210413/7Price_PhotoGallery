@@ -5,23 +5,21 @@
 
 
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Photo comments, Id: {{imageObjectmodal.id}}</h4>
+        <h4  class="modal-title" id="exampleModalLabel">Photo comments, Id: {{imageinform2.id}}</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
 
       <div style="text-align: center;" class="modal-body">
-        <img class="mb-3 mt-2 img-fluid" src="https://picsum.photos/id/238/600/400" alt="">
-        <!-- [src]="responseComment?.url" src="https://picsum.photos/id/238/600/400" -->
+        <img  class="mb-3 mt-2 img-fluid" [src]="imageinform2?.url" alt="">
+        <!-- (click)="searchCom(imageObjectmodal)" [src]="responseComment?.url" src="https://picsum.photos/id/238/600/400" -->
         <hr>
-        <div>
+        <div ngFor="let iterimg of commentt">
           <!--*ngFor="let iterimg of Com"-->
           <div data-bs-target="#idComment">
-            <div class="pt-3" id="idComment" tabindex="-1" aria-hidden="true">
-
-              <h5 style="text-align: left; padding-left: 30px;"> ID: 157 </h5>
-              <p><em>Прежде всего понимание сущности ресурсосберегающих технологий 
-                требует определения и уточнения направлений прогрессивного развития.</em></p>
+            <div class="pt-3" id="idComment">
+              <h6 style="text-align: left; padding-left: 30px;"> ID: {{commentt?.id}} </h6>
+              <p><em>{{commentt?.text}}</em></p>
               <hr>
             </div>
           </div>
@@ -32,7 +30,7 @@
               <input type="text" #name class="form-control" id="exampleInputName" aria-describedby="Name">
               <label for="message-text" class="col-form-label">Comment:</label>
               <textarea class="form-control mb-3" #commenttext id="Comment-text"></textarea>
-              <button type="reset" (click)="postComment(imageObjectmodal, name.value, commenttext.value)"
+              <button type="reset" (click)="postComment(imageinform2, name.value, commenttext.value)"
                 class="btn btn-primary">Save comment</button>
             </form>
           </div>
@@ -46,3 +44,4 @@
     </div>
   </div>
 </div>
+

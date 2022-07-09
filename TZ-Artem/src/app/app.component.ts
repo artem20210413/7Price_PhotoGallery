@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 
 export interface imageObject {
-  id: number
-  url: string
+  id?: number
+  url?: string
 }
 
 @Component({
