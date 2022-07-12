@@ -6,11 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {ContainerComponent} from './container-images/container-images.component';
 import { ModalComponent } from './modal/modal.component';
+import { UploadAComponent } from './upload-a-comment/UploadAComponent.component';
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
-    ModalComponent
+    ModalComponent,
+    UploadAComponent
 
   ],
   imports: [

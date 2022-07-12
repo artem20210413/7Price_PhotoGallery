@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -14,7 +14,6 @@ export interface imageObject {
 })
 
 export class AppComponent implements OnInit {
-  //response: imageObject[] = [];
   response: any;
   URLIMG: string = "https://boiling-refuge-66454.herokuapp.com/images";
   constructor(private http: HttpClient) {

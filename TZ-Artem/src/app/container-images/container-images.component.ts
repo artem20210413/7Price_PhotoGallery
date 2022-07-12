@@ -5,8 +5,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { imageObject } from '../app.component';
 
 export interface imageInform extends imageObject{
-  //id: number | undefined
-  //url: string | undefined
   comments?: Comments[] | undefined;
 }
 
@@ -28,46 +26,15 @@ export class ContainerComponent implements OnInit {
 
   @Input() img!: imageObject;
   @Input() imageinform: imageInform|undefined;
-  @Input() comment!: Comments[];
-  //@Input()  id: number| undefined;
-  responseCom: any;
+
   constructor(private http: HttpClient) { }
-
-
-
 
   searchCom(image: imageObject) {
     this.http.get(this.URLIMAGE + image.id)
       .subscribe((data) => {
         this.imageinform = data;
       });
-    //console.log(this.imageinform);
   }
-
-  
-  
-  /*assign(id: number){
-      if (id == this.imageinform?.id){
-         console.log("id match");
-         this.comment = this.imageinform.comments
-         console.log(this.comment);
-         this.id = this.imageinform.id
-         console.log(this.id );
-      }else console.log("id does not match")
-    }*/
-
-
-  /*
-  let header = new HttpHeaders()
-  let result = this.http.post( this.URLIMAGE + image.id+"/comments", this.body, {headers:header} )   POST Запрос!!
-  .subscribe();
-  console.log(result)*/
-
-  /*this.http.get(this.URLIMAGE + image.id)
-     .subscribe((responseCom) => {
-       this.responseCom = Object.entries(responseCom);
-       
-     })*/
 
   ngOnInit() {
     this.searchCom(this.img);
